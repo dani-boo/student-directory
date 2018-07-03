@@ -1,24 +1,29 @@
-student_count = 18
-# first we print the list of students
+# let's put all the students in an array
+students = [
+"Morty", 
+"Patrick Star", 
+"Cinnamon Bun", 
+"Peter Griffin", 
+"Homer Simpson", 
+"Ralph Wiggum", 
+"Cosmo", 
+"Officer Barbrady", 
+"Spongebob Squarepants", 
+"Dick Dastardly", 
+"Chris Griffin", 
+"Scooby-Doo", 
+"Lumpy Space Princess", 
+"Shaggy", 
+"Butters", 
+"Johnny Bravo", 
+"Pinky", 
+"Dee Dee" 
+]
+# and then print them
 puts "The students of Herrpadurrr Academy"
 puts "-----------------"
-puts "Morty"
-puts "Patrick Star"
-puts "Cinnamon Bun"
-puts "Peter Griffin"
-puts "Homer Simpson"
-puts "Ralph Wiggum"
-puts "Cosmo"
-puts "Officer Barbrady"
-puts "Spongebob Squarepants"
-puts "Dick Dastardly"
-puts "Chris Griffin"
-puts "Scooby-Doo"
-puts "Lumpy Space Princess"
-puts "Shaggy"
-puts "Butters"
-puts "Johnny Bravo"
-puts "Pinky"
-puts "Dee Dee"
+students.each do |student|
+  puts student
+end
 # finally, we print the total number of students
-puts "Overall, we have #{student_count} great students"
+puts "Overall, we have #{students.count} great students"
