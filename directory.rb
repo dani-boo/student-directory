@@ -1,3 +1,4 @@
+# first we print the list of students
 puts "The students of Herrpadurrr Academy"
 puts "-----------------"
 puts "Morty"
@@ -18,6 +19,8 @@ puts "Butters"
 puts "Johnny Bravo"
 puts "Pinky"
 puts "Dee Dee"
+# finally, we print the total number of students
 print "Overall, we have "
+# it’s important that print() doesn’t add new line characters
 print 18
 puts " great students"
