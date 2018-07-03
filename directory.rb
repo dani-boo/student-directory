@@ -18,3 +18,6 @@ puts "Butters"
 puts "Johnny Bravo"
 puts "Pinky"
 puts "Dee Dee"
+print "Overall, we have "
+print 18
+puts " great students"
