@@ -1,23 +1,23 @@
 # let's put all the students into an array
 students = [
-"Morty", 
-"Patrick Star", 
-"Cinnamon Bun", 
-"Peter Griffin", 
-"Homer Simpson", 
-"Ralph Wiggum", 
-"Cosmo", 
-"Officer Barbrady", 
-"Spongebob Squarepants", 
-"Dick Dastardly", 
-"Chris Griffin", 
-"Scooby-Doo", 
-"Lumpy Space Princess", 
-"Shaggy", 
-"Butters", 
-"Johnny Bravo", 
-"Pinky", 
-"Dee Dee" 
+{name: "Morty", cohort: :july},
+{name: "Patrick Star", cohort: :july},
+{name: "Cinnamon Bun", cohort: :july},
+{name: "Peter Griffin", cohort: :july},
+{name: "Homer Simpson", cohort: :july},
+{name: "Ralph Wiggum", cohort: :july},
+{name: "Cosmo", cohort: :july},
+{name: "Officer Barbrady", cohort: :july},
+{name: "Spongebob Squarepants", cohort: :july},
+{name: "Dick Dastardly", cohort: :july},
+{name: "Chris Griffin", cohort: :july},
+{name: "Scooby-Doo", cohort: :july},
+{name: "Lumpy Space Princess", cohort: :july},
+{name: "Shaggy", cohort: :july},
+{name: "Butters", cohort: :july},
+{name: "Johnny Bravo", cohort: :july},
+{name: "Pinky", cohort: :july},
+{name: "Dee Dee", cohort: :july}
 ]
 def print_header
   puts "The students of Herrpadurrr Academy"
@@ -25,7 +25,7 @@ def print_header
 end
 def print(students)
   students.each do |student|
-    puts student
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 def print_footer(students)
