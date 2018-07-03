@@ -1,4 +1,4 @@
-# let's put all the students in an array
+# let's put all the students into an array
 students = [
 "Morty", 
 "Patrick Star", 
@@ -19,11 +19,19 @@ students = [
 "Pinky", 
 "Dee Dee" 
 ]
-# and then print them
-puts "The students of Herrpadurrr Academy"
-puts "-----------------"
-students.each do |student|
-  puts student
+def print_header
+  puts "The students of Herrpadurrr Academy"
+  puts "-----------------"
 end
-# finally, we print the total number of students
-puts "Overall, we have #{students.count} great students"
+def print(students)
+  students.each do |student|
+    puts student
+  end
+end
+def print_footer(students)
+  puts "Overall, we have #{students.count} great students"
+end
+# remember to call methods, otherwise nothing happens
+print_header
+print(students)
+print_footer(students)
