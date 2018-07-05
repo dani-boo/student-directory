@@ -36,11 +36,11 @@ def print_first_letter(students, letter)
     end
   end
 end
+letter = input_first_letter
+print_first_letter(students, letter)
 
 # remember to call methods, otherwise nothing happens
 students = input_students
-letter = input_first_letter
 print_header
-print_first_letter(students, letter)
 # print(students)
 print_footer(students)
