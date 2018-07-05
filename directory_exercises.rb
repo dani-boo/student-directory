@@ -25,22 +25,33 @@ def print_footer(students)
 end
 
 # EXERCISE 2: print students whose names starts with specific letter
-def input_first_letter
-  puts "Which letter should printed names' start with?"
-  letter = gets.chomp.strip.capitalize
-end
-def print_first_letter(students, letter)
+# def input_first_letter
+#   puts "Which letter should printed names' start with?"
+#   letter = gets.chomp.strip.capitalize
+# end
+# def print_first_letter(students, letter)
+#   students.each do |student|
+#     if student[:name].start_with?(letter)
+#       puts "#{student[:name]} (#{student[:cohort]} cohort)"
+#     end
+#   end
+# end
+# letter = input_first_letter
+# print_first_letter(students, letter)
+
+# EXERCISE 3: only print names shorter than (12)
+def print_length(students, max_length)
   students.each do |student|
-    if student[:name].start_with?(letter)
+    if student[:name].length < max_length
       puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
 end
-letter = input_first_letter
-print_first_letter(students, letter)
+max_length = 12
 
 # remember to call methods, otherwise nothing happens
 students = input_students
+print_length(students, max_length) # EXERCISE 3 call method
 print_header
 # print(students)
 print_footer(students)
