@@ -24,6 +24,27 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
+# EXERCISE 4: print student names using while/until loop
+def print_loop(students)
+  count = 0
+  until count == students.length
+    students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    count += 1
+    end
+  end
+end
+
+# EXERCISE 3: only print names shorter than (12)
+# def print_length(students, max_length)
+#   students.each do |student|
+#     if student[:name].length < max_length
+#       puts "#{student[:name]} (#{student[:cohort]} cohort)"
+#     end
+#   end
+# end
+# max_length = 12
+
 # EXERCISE 2: print students whose names starts with specific letter
 # def input_first_letter
 #   puts "Which letter should printed names' start with?"
@@ -39,19 +60,10 @@ end
 # letter = input_first_letter
 # print_first_letter(students, letter)
 
-# EXERCISE 3: only print names shorter than (12)
-def print_length(students, max_length)
-  students.each do |student|
-    if student[:name].length < max_length
-      puts "#{student[:name]} (#{student[:cohort]} cohort)"
-    end
-  end
-end
-max_length = 12
-
 # remember to call methods, otherwise nothing happens
 students = input_students
-print_length(students, max_length) # EXERCISE 3 call method
+# print_length(students, max_length) # EXERCISE 3 call method
+print_loop(students)
 print_header
 # print(students)
 print_footer(students)
