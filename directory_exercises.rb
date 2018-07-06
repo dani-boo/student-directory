@@ -139,9 +139,12 @@ print_first_letter(students, letter)
 
 # remember to call methods, otherwise nothing happens
 students = input_students
+# EXERCISE 12: if list is empty, don't print
+unless students.empty?
+  print_header
+  print_by_cohort(students) # EXERCISE 8
+  print_footer(students)
+end
 # print_length(students, max_length) # EXERCISE 3 call method
-print_header
-print_by_cohort(students) # EXERCISE 8
 # print_loop(students)
 # print(students)
-print_footer(students)
