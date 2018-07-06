@@ -19,10 +19,15 @@ def input_students
   while !name.empty? do
     # add student hash to array
     students << {name: name, hobby: hobby, country: country, cohort: :July}
-    center_puts "Now we have #{students.count} students"
-    # get another name from user
-    center_puts "Please enter another student's name, or just hit return to end the list:"
-    name = gets.chomp.strip.capitalize
+  # EXERCISE 9: use singular "student" if there is only one peron on list
+    if students.count == 1
+      center_puts "Now we have #{students.count} student"
+    else
+      center_puts "Now we have #{students.count} students"
+    end
+      # get another name from user
+      center_puts "Please enter another student's name, or just hit return to end the list:"
+      name = gets.chomp.strip.capitalize
       if name.empty?
         break
       end
@@ -37,13 +42,16 @@ def input_students
   students
 end
 def print_header
-  lineWidth = 75 
   center_puts "The students of Herrpadurrr Academy"
   center_puts "-----------------------------------"
 end
 def print_footer(students)
-  lineWidth = 75 
-  center_puts "Overall, we have #{students.count} great students"
+# Also EXERCISE 9: singular student
+  if students.count == 1
+    center_puts "We have #{students.count} awesome student"
+  else
+    center_puts "Overall, we have #{students.count} great students"
+  end
 end
 # EXERCISE 5: add extra categories to students (e.g. hobbies etc.)
 # EXERCISE 4: print student names using while/until loop
