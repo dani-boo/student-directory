@@ -27,7 +27,7 @@ def input_students
   center_puts "Please follow the instructions. When you're done, hit return twice"
   center_puts "Please enter a student's name"
   # get the first name
-  name = gets.chomp.strip.capitalize
+  name = gets.strip.capitalize
   while !name.empty? do
     # get cohort
 # EXERCISE 7: add input method for cohort (some additional functionality still missing, e.g. misspelled months etc.)
