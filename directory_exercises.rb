@@ -4,20 +4,22 @@ def center_puts(str)
 end
 
 # EXERCISE 7: will still try to implement this for cohorts - moving on for now
-# cohorts = {
-#   :january => "January",
-#   :february => "February",
-#   :march => "March",
-#   :april => "April",
-#   :may => "May",
-#   :june => "June",
-#   :july => "July",
-#   :august => "August",
-#   :september => "September",
-#   :october => "October",
-#   :november => "November",
-#   :december => "December"
-# }
+=begin
+cohorts_list = [
+  :January,
+  :February,
+  :March,
+  :April,
+  :May,
+  :June,
+  :July,
+  :August,
+  :September,
+  :October,
+  :November,
+  :December
+]
+=end
 
 def input_students 
   # create empty array
@@ -73,8 +75,8 @@ def print_footer(students)
 end
 # EXERCISE 5: add extra categories to students (e.g. hobbies etc.)
 # EXERCISE 4: print student names using while/until loop
+=begin
 def print_loop(students)
-  lineWidth = 75
   count = 0
   until count == students.length
     students.each.with_index(1) do |student, index|
@@ -91,36 +93,55 @@ def print_loop(students)
     end
   end
 end
+=end
+
+# EXERCISE 8: Sort & print by cohort
+def print_by_cohort(students)
+  puts "Choose a cohort to print:"
+  which_cohort = gets.chomp.capitalize.to_sym
+  students_by_cohort = []
+  students.map do |student|
+    if student[:cohort] == which_cohort
+      students_by_cohort << student
+    end
+  end
+  puts students_by_cohort
+end
 
 # EXERCISE 3: only print names shorter than (12)
-# def print_length(students, max_length)
-#   students.each do |student|
-#     if student[:name].length < max_length
-#       center_puts "#{student[:name]} (#{student[:cohort]} cohort)"
-#     end
-#   end
-# end
-# max_length = 12
+=begin
+def print_length(students, max_length)
+  students.each do |student|
+    if student[:name].length < max_length
+      center_puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  end
+end
+max_length = 12
+=end
 
 # EXERCISE 2: print students whose names starts with specific letter
-# def input_first_letter
-#   center_puts "Which letter should printed names' start with?"
-#   letter = gets.chomp.strip.capitalize
-# end
-# def print_first_letter(students, letter)
-#   students.each do |student|
-#     if student[:name].start_with?(letter)
-#       center_puts "#{student[:name]} (#{student[:cohort]} cohort)"
-#     end
-#   end
-# end
-# letter = input_first_letter
-# print_first_letter(students, letter)
+=begin
+def input_first_letter
+  center_puts "Which letter should printed names' start with?"
+  letter = gets.chomp.strip.capitalize
+end
+def print_first_letter(students, letter)
+  students.each do |student|
+    if student[:name].start_with?(letter)
+      center_puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  end
+end
+letter = input_first_letter
+print_first_letter(students, letter)
+=end
 
 # remember to call methods, otherwise nothing happens
 students = input_students
 # print_length(students, max_length) # EXERCISE 3 call method
 print_header
-print_loop(students)
+print_by_cohort(students) # EXERCISE 8
+# print_loop(students)
 # print(students)
 print_footer(students)
