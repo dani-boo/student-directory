@@ -2,23 +2,47 @@
 def center_puts(str)
   puts str.center(75)
 end
+
+# EXERCISE 7: will still try to implement this for cohorts - moving on for now
+# cohorts = {
+#   :january => "January",
+#   :february => "February",
+#   :march => "March",
+#   :april => "April",
+#   :may => "May",
+#   :june => "June",
+#   :july => "July",
+#   :august => "August",
+#   :september => "September",
+#   :october => "October",
+#   :november => "November",
+#   :december => "December"
+# }
+
 def input_students 
-  center_puts "Please follow the instructions. When you're done, hit return twice"
-  center_puts "Please enter a student's name"
   # create empty array
   students = []
+  center_puts "Please follow the instructions. When you're done, hit return twice"
+  center_puts "Please enter a student's name"
   # get the first name
   name = gets.chomp.strip.capitalize
-  # get hobbies
-  center_puts "Please enter student's hobby"
-  hobby = gets.chomp.strip
-  # get CoB
-  center_puts "What is the student's country of birth?"
-  country = gets.chomp.strip
-  # while name is not empty, repeat this code
   while !name.empty? do
+    # get cohort
+# EXERCISE 7: add input method for cohort (some additional functionality still missing, e.g. misspelled months etc.)
+    center_puts "Which cohort (month) is this student in?"
+    cohort = gets.chomp.strip.capitalize.to_sym
+    if cohort.empty?
+      cohort = "July"
+    end
+    # get hobbies
+    center_puts "Please enter student's hobby"
+    hobby = gets.chomp.strip.downcase
+    # get CoB
+    center_puts "What is the student's country of birth?"
+    country = gets.chomp.strip
+    # while name is not empty, repeat this code
     # add student hash to array
-    students << {name: name, hobby: hobby, country: country, cohort: :July}
+    students << {name: name, hobby: hobby, country: country, cohort: cohort}
   # EXERCISE 9: use singular "student" if there is only one peron on list
     if students.count == 1
       center_puts "Now we have #{students.count} student"
@@ -26,17 +50,11 @@ def input_students
       center_puts "Now we have #{students.count} students"
     end
       # get another name from user
-      center_puts "Please enter another student's name, or just hit return to end the list:"
-      name = gets.chomp.strip.capitalize
-      if name.empty?
-        break
-      end
-    # get another hobby
-    center_puts "And this student's hobby?"
-    hobby = gets.chomp.strip.capitalize
-    # CoB
-    center_puts "And their country of birth?"
-  country = gets.chomp.strip
+    center_puts "Please enter another student's name, or just hit return to end the list:"
+    name = gets.chomp.strip.capitalize
+    if name.empty?
+      break
+    end
   end
   # return array of students
   students
@@ -60,8 +78,16 @@ def print_loop(students)
   count = 0
   until count == students.length
     students.each.with_index(1) do |student, index|
-    center_puts "#{index}: #{student[:name]} in the #{student[:cohort]} cohort is from #{student[:country]} and likes to play #{student[:hobby]}"
-    count += 1
+      if student[:country].empty? && student[:hobby].empty?
+        center_puts "#{index}: #{student[:name]} is in the #{student[:cohort]} cohort"
+      elsif student[:country].empty?
+        center_puts "#{index}: #{student[:name]} is in the #{student[:cohort]} cohort and likes #{student[:hobby]}"
+      elsif student[:hobby].empty?
+        center_puts "#{index}: #{student[:name]} in the #{student[:cohort]} cohort is from #{student[:country]}"  
+      else
+        center_puts "#{index}: #{student[:name]} in the #{student[:cohort]} cohort is from #{student[:country]} and likes #{student[:hobby]}"
+      end  
+      count += 1
     end
   end
 end
