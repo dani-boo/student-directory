@@ -1,3 +1,4 @@
+require "csv"
 @students = [] # an empty array accessible to all methods
 
 def print_menu
@@ -15,6 +16,10 @@ def interactive_menu
   end
 end
 
+def students_list(name, cohort)
+  @students << {name: name, cohort: cohort.to_sym}
+end
+
 def process(selection)
   case selection
   when "1"
@@ -22,9 +27,21 @@ def process(selection)
   when "2"
     show_students
   when "3"
-    save_students
+    puts "Please type file name, or press enter to see students.csv"
+    save_name = STDIN.gets.chomp
+    if save_name?
+      save_students
+    else
+      save_students(save_name)
+    end
   when "4"
-    load_students
+    puts "Please type file name, or press enter to load students.csv"
+    load_name = STDIN.gets.chomp
+    if load_name.empty?
+      load_students
+    else
+      load_students(load_name)
+    end
   when "9"
     exit # this will cause the program to terminate
   else
@@ -39,18 +56,32 @@ def input_students
   name = STDIN.gets.chomp
   # while the name is not empty, repeat this code
   while !name.empty? do
+    puts "Which cohort?"
+    cohort = STDIN.gets.chomp
     # add the student hash to the array
-    @students << {name: name, cohort: :november}
-    puts "Now we have #{@students.count} students"
+    if cohort.empty?
+      @students << {name: name, cohort: :november}
+    else
+      students_list(name, cohort)
+    end
+    if @students.count > 1
+      puts "Now we have #{@students.count} students"
+    else
+      puts "Now we have 1 student"
+    end
     # get another name from the user
+    puts "Please enter next student's name"
     name = STDIN.gets.chomp
   end
 end
 
 def show_students
-  print_header
-  print_student_list
-  print_footer
+  if @students.count >= 1
+    print_header
+    print_student_list
+    print_footer
+  else
+    puts "We don't have any students yet"
 end
 
 def print_header
@@ -103,3 +134,12 @@ end
 
 try_load_students
 interactive_menu
+
+# Program that reads its own source code
+def filename = __FILE__
+  File.open(filename, "r") do |file|
+    file.readlines.each do |line|
+      puts line
+    end
+  end
+end
